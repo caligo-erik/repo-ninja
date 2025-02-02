@@ -1,6 +1,6 @@
 {
   "name": "@caligo-ninja/repo-ninja",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "",
   "bin": {
     "repo-ninja": "./bin/repo-ninja.js"
