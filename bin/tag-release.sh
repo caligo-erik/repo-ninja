@@ -1,13 +1,23 @@
 #!/bin/bash
 set -e  # Exit on error
 
-# 🏷️ Get the current version from package.json
-VERSION=$(node -p "require('./package.json').version")
+# Get current version from package.json
+VERSION=$(node -p 'require("./package.json").version')
+
+echo "🔖 Tagging version: $VERSION..."
+
+# Ensure latest commit is pushed before tagging
+if [ "$(git rev-parse --abbrev-ref HEAD)" != "main" ]; then
+  echo "❌ Error: You must be on main to tag a release!"
+  exit 1
+fi
+
+# 🔄 Push the latest commit before tagging
+echo "📤 Pushing latest commit to origin..."
+git push origin main
 
 # 🏷️ Create and push the tag
-echo "Tagging version: $VERSION..."
-git commit -a -m "$VERSION"
-git tag -a "$VERSION" -m "$VERSION"
-git push --follow-tags
+git tag -a "$VERSION" -m "Release $VERSION"
+git push origin "$VERSION"
 
-echo "✅ Version $VERSION tagged and pushed."
+echo "✅ Version $VERSION tagged and pushed!"
