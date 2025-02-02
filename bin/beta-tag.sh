@@ -10,8 +10,8 @@ repo-ninja check-clean-workspace
 # 🔍 Get current branch name
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 
-# 🔄 Sanitize branch name (replace non-alphanumeric characters with "-")
-SANITIZED_BRANCH_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9]/-/g')
+# 🔄 Sanitize branch name using shared function
+SANITIZED_BRANCH_NAME=$(repo-ninja sanitize-branch "$BRANCH_NAME")
 
 # 📌 Get current version
 CURRENT_VERSION=$(node -p "require('./package.json').version")
