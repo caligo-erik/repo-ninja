@@ -15,11 +15,15 @@
     "prepatch": "npm run link",
     "preminor": "npm run link",
     "premajor": "npm run link",
+    "precleanBranches": "npm run link",
+    "precleanBranches:dry": "npm run link",
     "reinstall": "repo-ninja reinstall",
     "beta": "repo-ninja beta-tag",
     "patch": "repo-ninja version-bump patch",
     "minor": "repo-ninja version-bump minor",
-    "major": "repo-ninja version-bump major"
+    "major": "repo-ninja version-bump major",
+    "cleanBranches:dry": "repo-ninja clean-local-branches --dry-run",
+    "cleanBranches": "repo-ninja clean-local-branches"
   },
   "repository": {
     "type": "git",
