@@ -1,0 +1,24 @@
+{
+  "name": "repo-ninja",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "repo-ninja": "./bin/repo-ninja.js"
+  },
+  "scripts": {
+    "branch:require-main": "repo-ninja branch-guard require-default",
+    "branch:require-feature": "repo-ninja branch-guard block-default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Caligo-srl/repo-ninja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Caligo-srl/repo-ninja/issues"
+  },
+  "homepage": "https://github.com/Caligo-srl/repo-ninja#readme"
+}
