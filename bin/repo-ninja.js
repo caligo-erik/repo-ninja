@@ -1,21 +1,68 @@
 #!/usr/bin/env node
 const { execSync } = require('child_process');
-const path = require('path');
 
-const args = process.argv.slice(2); // Get command-line arguments
+const args = process.argv.slice(2);
 
-if (args.length === 0) {
-  console.error('Usage: repo-ninja <command> [options]');
+if (args.length === 0 || args.includes('--help')) {
+  console.log(`
+  Usage: repo-ninja <command> [options]
+
+  Available Commands:
+    link                   Ensure repo-ninja is properly linked
+    reinstall              Remove node_modules and reinstall dependencies
+    version-bump <type>    Bump version (patch, minor, major)
+    tag-release            Tag and push the latest version
+    beta-tag               Create a beta tag
+    clean-beta             Remove obsolete beta tags
+    clean-local-branches   Remove local branches that no longer exist on remote
+    branch-guard           Ensure the correct branch is checked out
+    check-clean-workspace  Ensure no uncommitted changes
+
+  Options:
+    --dry-run              Simulate the command without making changes
+    --help                 Show this help message
+
+  Example package.json integration:
+  ---------------------------------
+  {
+    "scripts": {
+      "reinstall": "repo-ninja reinstall",
+      "beta": "repo-ninja beta-tag",
+      "patch": "repo-ninja version-bump patch",
+      "minor": "repo-ninja version-bump minor",
+      "major": "repo-ninja version-bump major"
+    }
+  }
+  ---------------------------------
+  `);
+  process.exit(0);
+}
+
+// Extract the command
+const command = args[0];
+
+// Map commands to scripts
+const scriptMap = {
+  link: 'link-repo-ninja.sh',
+  reinstall: 'reinstall.sh',
+  'version-bump': 'version-bump.sh',
+  'tag-release': 'tag-release.sh',
+  'beta-tag': 'beta-tag.sh',
+  'clean-beta': 'clean-beta.sh',
+  'clean-local-branches': 'clean-local-branches.sh',
+  'branch-guard': 'branch-guard.sh',
+  'check-clean-workspace': 'check-clean-workspace.sh',
+};
+
+if (!scriptMap[command]) {
+  console.error(`❌ Error: Unknown command '${command}'`);
+  console.error(`Run 'repo-ninja --help' for a list of available commands.`);
   process.exit(1);
 }
 
-// Construct the full path to the corresponding shell script
-const scriptPath = path.join(__dirname, `${args[0]}.sh`);
-
+// Execute the mapped script
 try {
-  // Run the shell script with remaining arguments
-  execSync(`${scriptPath} ${args.slice(1).join(' ')}`, { stdio: 'inherit', shell: true });
+  execSync(`${__dirname}/bin/${scriptMap[command]} ${args.slice(1).join(' ')}`, { stdio: 'inherit' });
 } catch (error) {
-  console.error(`Error: Command failed - ${error.message}`);
   process.exit(1);
 }
