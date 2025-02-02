@@ -52,6 +52,7 @@ const scriptMap = {
   'clean-local-branches': 'clean-local-branches.sh',
   'branch-guard': 'branch-guard.sh',
   'check-clean-workspace': 'check-clean-workspace.sh',
+  version: 'version.sh',
 };
 
 if (!scriptMap[command]) {
