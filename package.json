@@ -1,6 +1,6 @@
 {
   "name": "@caligo-ninja/repo-ninja",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "",
   "bin": {
     "repo-ninja": "./bin/repo-ninja.js"
@@ -13,7 +13,9 @@
     "prepatch": "npm run link",
     "preminor": "npm run link",
     "premajor": "npm run link",
+    "preversion-bump-dry-run": "npm run link",
     "reinstall": "repo-ninja reinstall",
+    "version-bump-dry-run": "repo-ninja version-bump major --dry-run",
     "beta": "repo-ninja beta-tag",
     "patch": "repo-ninja version-bump patch",
     "minor": "repo-ninja version-bump minor",

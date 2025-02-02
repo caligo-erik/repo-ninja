@@ -1,11 +1,21 @@
 #!/bin/bash
 set -e  # Exit on error
 
-# Check for uncommitted changes
-if [[ -n $(git status --porcelain) ]]; then
-  echo "❌ Error: You have uncommitted changes!"
-  echo "Commit or stash your changes before bumping the version."
-  exit 1
+DRY_RUN=false
+
+# Check for --dry-run flag
+if [[ "$1" == "--dry-run" ]]; then
+  DRY_RUN=true
 fi
 
-echo "✅ Workspace is clean."
+# Check for uncommitted changes
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  if [ "$DRY_RUN" = true ]; then
+    echo "⚠️ Warning: Uncommitted changes detected (dry-run mode)."
+  else
+    echo "❌ Error: You have uncommitted changes. Please commit or stash them first!"
+    exit 1
+  fi
+else
+  echo "✅ Workspace is clean."
+fi
