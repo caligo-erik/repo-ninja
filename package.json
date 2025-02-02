@@ -1,5 +1,5 @@
 {
-  "name": "repo-ninja",
+  "name": "@caligo-ninja/repo-ninja",
   "version": "1.0.0",
   "description": "",
   "bin": {
@@ -21,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/Caligo-srl/repo-ninja/issues"
   },
-  "homepage": "https://github.com/Caligo-srl/repo-ninja#readme",
-  "dependencies": {
-    "genversion": "^3.2.0"
-  }
+  "homepage": "https://github.com/Caligo-srl/repo-ninja#readme"
 }
