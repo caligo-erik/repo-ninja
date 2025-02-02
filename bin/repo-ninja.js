@@ -43,15 +43,16 @@ const command = args[0];
 
 // Map commands to scripts
 const scriptMap = {
-  link: 'link-repo-ninja.sh',
-  reinstall: 'reinstall.sh',
-  'version-bump': 'version-bump.sh',
-  'tag-release': 'tag-release.sh',
   'beta-tag': 'beta-tag.sh',
-  'clean-beta': 'clean-beta.sh',
-  'clean-local-branches': 'clean-local-branches.sh',
   'branch-guard': 'branch-guard.sh',
   'check-clean-workspace': 'check-clean-workspace.sh',
+  'clean-beta': 'clean-beta.sh',
+  'clean-local-branches': 'clean-local-branches.sh',
+  link: 'link-repo-ninja.sh',
+  reinstall: 'reinstall.sh',
+  'sanitize-branch': 'sanitize-branch.sh',
+  'tag-release': 'tag-release.sh',
+  'version-bump': 'version-bump.sh',
   version: 'version.sh',
 };
 
