@@ -7,8 +7,17 @@
   },
   "packageManager": "pnpm",
   "scripts": {
-    "branch:require-main": "repo-ninja branch-guard require-default",
-    "branch:require-feature": "repo-ninja branch-guard block-default"
+    "link": "bin/link-repo-ninja.sh",
+    "prereinstall": "npm run link",
+    "prebeta": "npm run link",
+    "prepatch": "npm run link",
+    "preminor": "npm run link",
+    "premajor": "npm run link",
+    "reinstall": "repo-ninja reinstall",
+    "beta": "repo-ninja beta-tag",
+    "patch": "repo-ninja version-bump patch",
+    "minor": "repo-ninja version-bump minor",
+    "major": "repo-ninja version-bump major"
   },
   "repository": {
     "type": "git",
