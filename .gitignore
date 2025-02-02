@@ -1,0 +1,34 @@
+# 🚀 Node.js dependencies
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+.yarn.lock
+
+# 🚀 Build artifacts (if we compile anything in the future)
+dist/
+lib/
+out/
+
+# 🚀 Logs & Temp Files
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+.DS_Store
+*.log
+*.tmp
+
+# 🚀 Git metadata backups (in case of rebases)
+*.orig
+
+# 🚀 Shell history & system files (just in case)
+.history
+.swp
+*.bak
+
+# 🚀 Editor-specific files
+.idea/          # JetBrains (WebStorm, IntelliJ)
+.vscode/        # VS Code settings
+*.code-workspace
+
+# 🚀 Miscellaneous
+.env            # Environment variables (if used in the future)
