@@ -62,7 +62,7 @@ if (!scriptMap[command]) {
 
 // Execute the mapped script
 try {
-  execSync(`${__dirname}/bin/${scriptMap[command]} ${args.slice(1).join(' ')}`, { stdio: 'inherit' });
+  execSync(`${__dirname}/${scriptMap[command]} ${args.slice(1).join(' ')}`, { stdio: 'inherit' });
 } catch (error) {
   process.exit(1);
 }
