@@ -8,15 +8,21 @@ if (args.length === 0 || args.includes('--help')) {
   Usage: repo-ninja <command> [options]
 
   Available Commands:
-    link                   Ensure repo-ninja is properly linked
-    reinstall              Remove node_modules and reinstall dependencies
-    version-bump <type>    Bump version (patch, minor, major)
-    tag-release            Tag and push the latest version
     beta-tag               Create a beta tag
+    beta-check-tag         Check if the last commit has a beta tag
+    branch-guard <mode>    Ensure the correct branch is checked out
+                           Modes:
+                           - require-default  (Fail if NOT on default branch)
+                           - block-default    (Fail if ON default branch)
+    check-clean-workspace  Ensure no uncommitted changes
     clean-beta             Remove obsolete beta tags
     clean-local-branches   Remove local branches that no longer exist on remote
-    branch-guard           Ensure the correct branch is checked out
-    check-clean-workspace  Ensure no uncommitted changes
+    link                   Ensure repo-ninja is properly linked
+    reinstall              Remove node_modules and reinstall dependencies
+    sanitize-branch        Sanitize a branch name (for tag compatibility)
+    tag-release            Tag and push the latest version
+    version-bump <type>    Bump version (patch, minor, major)
+    version                Generate the version file
 
   Options:
     --dry-run              Simulate the command without making changes
@@ -44,6 +50,7 @@ const command = args[0];
 // Map commands to scripts
 const scriptMap = {
   'beta-tag': 'beta-tag.sh',
+  'beta-check-tag': 'check-last-commit-beta.sh',
   'branch-guard': 'branch-guard.sh',
   'check-clean-workspace': 'check-clean-workspace.sh',
   'clean-beta': 'clean-beta.sh',

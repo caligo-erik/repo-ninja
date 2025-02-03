@@ -37,15 +37,17 @@ npm install --save-dev @caligo-ninja/repo-ninja
 
 📌 Then, add repo-ninja to your package.json scripts (see below).
 
-# Usage
+---
 
-Run repo-ninja --help to see available commands:
+## 📌 **Usage**
+
+Run `repo-ninja --help` to see available commands:
 
 ```sh
 repo-ninja --help
 ```
 
-## Available Commands
+### **Available Commands**
 
 ```sh
 repo-ninja link                   # Ensure repo-ninja is properly linked
@@ -53,20 +55,26 @@ repo-ninja reinstall              # Remove node_modules and reinstall dependenci
 repo-ninja version-bump <type>     # Bump version (patch, minor, major)
 repo-ninja tag-release            # Tag and push the latest version
 repo-ninja beta-tag               # Create a beta tag
+repo-ninja beta-check-tag          # Check if the last commit has a beta tag
 repo-ninja clean-beta             # Remove obsolete beta tags
 repo-ninja clean-local-branches   # Remove local branches that no longer exist on remote
-repo-ninja branch-guard           # Ensure the correct branch is checked out
+repo-ninja branch-guard <mode>    # Ensure the correct branch is checked out
+                                  # Modes:
+                                  #   require-default  (Fail if NOT on default branch)
+                                  #   block-default    (Fail if ON default branch)
 repo-ninja check-clean-workspace  # Ensure no uncommitted changes
 ```
 
-## Options
+### **Options**
 
 ```sh
 repo-ninja <command> --dry-run   # Simulate the command without making changes
 repo-ninja --help                # Show this help message
 ```
 
-# 📌 Package.json Integration
+---
+
+## 📌 **Package.json Integration**
 
 ```json
 {
@@ -80,20 +88,74 @@ repo-ninja --help                # Show this help message
 }
 ```
 
-# Clean Old Local Branches
+Then, run them like this:
+
+```sh
+npm run patch
+npm run beta
+npm run reinstall
+```
+
+---
+
+## 📌 **Examples**
+
+### **Bump a Patch Version**
+
+```sh
+repo-ninja version-bump patch
+```
+
+🔼 **This will:**
+
+1. Check for uncommitted changes
+2. Ensure you're on the default branch
+3. Update `package.json.version`
+4. Generate `version.ts`
+5. Commit & tag the new version
+
+---
+
+### **Check If the Last Commit Has a Beta Tag**
+
+```sh
+repo-ninja beta-check-tag
+```
+
+🔍 **This will:**
+
+- Check if the last commit is tagged with a beta version
+- Exit with success if a beta tag exists
+- Fail if no beta tag is found
+
+To **run in dry-run mode** (only warn, no failure):
+
+```sh
+repo-ninja beta-check-tag --dry-run
+```
+
+---
+
+### **Clean Old Local Branches**
 
 ```sh
 repo-ninja clean-local-branches --dry-run
 ```
 
-This will
+🔍 **This will:**
 
 - List local branches that no longer exist on the remote
 - Warn if uncommitted changes exist
-- No branches will be deleted in dry-run mode
+- **No branches will be deleted in dry-run mode**
 
-Run without --dry-run to actually delete them:
+Run without `--dry-run` to actually delete them:
 
 ```sh
 repo-ninja clean-local-branches
 ```
+
+---
+
+## 📌 **Contributing**
+
+Want to improve `repo-ninja`? Open a pull request! 🚀
