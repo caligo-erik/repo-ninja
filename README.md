@@ -83,7 +83,12 @@ repo-ninja --help                # Show this help message
     "beta": "repo-ninja beta-tag",
     "patch": "repo-ninja version-bump patch",
     "minor": "repo-ninja version-bump minor",
-    "major": "repo-ninja version-bump major"
+    "major": "repo-ninja version-bump major",
+    "check": "repo-ninja version -c -e -s -v ./src/version.ts",
+    "branchCheck:main": "repo-ninja branch-guard require-default",
+    "branchCheck:dev": "repo-ninja branch-guard block-default",
+    "cleanBranches:dry": "repo-ninja clean-local-branches --dry-run",
+    "cleanBranches": "repo-ninja clean-local-branches"
   }
 }
 ```
