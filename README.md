@@ -19,7 +19,7 @@ You can install `repo-ninja` either **globally** or as a **dev dependency**.
 ### **Option 1: Global Installation**
 
 ```sh
-npm install -g @caligo-ninja/repo-ninja
+npm install -g repo-ninja
 ```
 
 📌 This allows you to run repo-ninja from anywhere:
@@ -32,7 +32,7 @@ repo-ninja beta-tag
 ### **Option 2: Install as Dev Dependency**
 
 ```sh
-npm install --save-dev @caligo-ninja/repo-ninja
+npm install --save-dev repo-ninja
 ```
 
 📌 Then, add repo-ninja to your package.json scripts (see below).
@@ -163,4 +163,4 @@ repo-ninja clean-local-branches
 
 ## 📌 **Contributing**
 
-Want to improve `repo-ninja`? Open a pull request! 🚀
+Want to improve `repo-ninja`? Check out our [contribution guide!](CONTRIBUTING.md) 🚀
