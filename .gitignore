@@ -32,3 +32,6 @@ yarn-debug.log*
 
 # 🚀 Miscellaneous
 .env            # Environment variables (if used in the future)
+
+# 🚀 src directory (the tool will generate src/version.js|ts but can be ignored within this repo)
+src/

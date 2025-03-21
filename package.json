@@ -1,7 +1,7 @@
 {
-  "name": "@caligo-ninja/repo-ninja",
+  "name": "repo-ninja",
   "version": "2.7.0",
-  "description": "",
+  "description": "A CLI tool to streamline repo management tasks.",
   "bin": {
     "repo-ninja": "./bin/repo-ninja.js"
   },
@@ -31,14 +31,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Caligo-srl/repo-ninja.git"
+    "url": "git+https://github.com/caligo-erik/repo-ninja.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Erik Norman",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Caligo-srl/repo-ninja/issues"
+    "url": "https://github.com/caligo-erik/repo-ninja/issues"
   },
-  "homepage": "https://github.com/Caligo-srl/repo-ninja#readme"
+  "homepage": "https://github.com/caligo-erik/repo-ninja#readme"
 }
