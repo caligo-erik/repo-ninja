@@ -74,7 +74,7 @@ repo-ninja --help                # Show this help message
 
 ---
 
-## 📌 **Package.json Integration**
+## 📌 **Package.json Integration Example**
 
 ```json
 {
@@ -85,6 +85,7 @@ repo-ninja --help                # Show this help message
     "minor": "repo-ninja version-bump minor",
     "major": "repo-ninja version-bump major",
     "check": "repo-ninja version -c -e -s -v ./src/version.ts",
+    "prepublishOnly": "npm run check && npm run reinstall && npm run test",
     "branchCheck:main": "repo-ninja branch-guard require-default",
     "branchCheck:dev": "repo-ninja branch-guard block-default",
     "cleanBranches:dry": "repo-ninja clean-local-branches --dry-run",
