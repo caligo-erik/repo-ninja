@@ -1,6 +1,6 @@
 {
   "name": "repo-ninja",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "A CLI tool to streamline repo management tasks.",
   "bin": {
     "repo-ninja": "./bin/repo-ninja.js"
